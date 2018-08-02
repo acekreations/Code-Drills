@@ -1,43 +1,65 @@
 var nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var operators = ["+", "-", "*", "/"];
 
-var userNums = [];
-var userOpertator;
+var userNums1 = [];
+var userNums2 = [];
+var userOpertator = "";
 
+// document.getElementById("num1").innerHTML = key;
+
+//listen for keystroke
 document.addEventListener('keydown', function(event){
   var key = event.key;
 
-  if (nums.indexOf(key) >= 0) {
-    userNums.push(key);
-    console.log("number: " + userNums);
-    document.getElementById("num1").innerHTML = key;
+  //checks nums array to see if key pressed was a number
+  if (nums.indexOf(key) >= 0 && userOpertator.length <= 0) {
+    userNums1.push(key);
+    document.getElementById("num1").innerHTML = userNums1.join("");
   }
+  else if (nums.indexOf(key) >= 0 && userOpertator.length >= 1) {
+    userNums2.push(key);
+    document.getElementById("num2").innerHTML = userNums2.join("");
+  }
+  //checks keystroke agains operators array to see if it was infact an accepted operator
   else if (operators.indexOf(key) >= 0) {
     userOpertator = key;
-    console.log("operator: " + userOpertator);
+    document.getElementById("operator").innerHTML = userOpertator;
   }
+  //checks if key was = sign, and calculates the numbers
   else if (key === "=") {
-    console.log("calculate");
     if (userOpertator === "+") {
-        total = parseInt(userNums[0]) + parseInt(userNums[1]);
-        console.log(total);
+      userNums1 = userNums1.join("");
+      userNums2 = userNums2.join("");
+      total = parseInt(userNums1) + parseInt(userNums2);
+      document.getElementById("result").innerHTML = total;
     }
     if (userOpertator === "-") {
-        total = parseInt(userNums[0]) - parseInt(userNums[1]);
-        console.log(total);
+      userNums1 = userNums1.join("");
+      userNums2 = userNums2.join("");
+      total = parseInt(userNums1) - parseInt(userNums2);
+      document.getElementById("result").innerHTML = total;
     }
     if (userOpertator === "*") {
-        total = parseInt(userNums[0]) * parseInt(userNums[1]);
-        console.log(total);
+      userNums1 = userNums1.join("");
+      userNums2 = userNums2.join("");
+      total = parseInt(userNums1) * parseInt(userNums2);
+      document.getElementById("result").innerHTML = total;
     }
     if (userOpertator === "/") {
-        total = parseInt(userNums[0]) / parseInt(userNums[1]);
-        console.log(total);
+      userNums1 = userNums1.join("");
+      userNums2 = userNums2.join("");
+      total = parseInt(userNums1) / parseInt(userNums2);
+      document.getElementById("result").innerHTML = total;
     }
   }
+  //checks if key was c, and clears all variables to reset calculator
   else if (key === "c") {
-    console.log("Clear");
-    userNums = [];
+    userNums1 = [];
+    userNums2 = [];
     userOpertator = "";
+    document.getElementById("num1").innerHTML = userNums1;
+    document.getElementById("operator").innerHTML = userOpertator;
+    document.getElementById("num2").innerHTML = userNums2;
+    document.getElementById("result").innerHTML = "";
   }
 })
