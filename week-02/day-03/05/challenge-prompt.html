@@ -7,22 +7,22 @@
   <title>Ternarys</title>
 </head>
 <body>
-  
+
 
   <script>
 // ========================= QUESTION 1 =========================
 // Without loonking back at the example given to you in the readme, do your best to recreate the same code using a ternary.
-// Remember, if the argument is true "Yea, it's true" is logged to the console, and if it's false "Nah, it's false" is logged to the console. 
+// Remember, if the argument is true "Yea, it's true" is logged to the console, and if it's false "Nah, it's false" is logged to the console.
 
 var bool = false;
 
 function fun(arg) {
 
   //Your answer in the console.log()
-  console.log();
+  console.log(arg ? "Yea, it's true" : "Nah, it's false");
 }
 
-fun(bool) 
+fun(bool)
 
 
 // ==============================================================
@@ -30,17 +30,32 @@ fun(bool)
 
 
 // ========================= QUESTION 2 =========================
-// Create a variable called likesBasketball, and set it to true or false depending on your preference. 
-//Then, Similar to question 1, create a function called canYouBall, which takes in an argument (name of your choosing). 
+// Create a variable called likesBasketball, and set it to true or false depending on your preference.
+//Then, Similar to question 1, create a function called canYouBall, which takes in an argument (name of your choosing).
 // If the argument is true, console.log("Welcome to the Warriors"). If it is false, console.log("It's ok, there's always code :)").
-//Call your canYouBall function, passing in the likesBasketball variable (if you're having trouble remembering what this means, refer to line 25 above). 
+//Call your canYouBall function, passing in the likesBasketball variable (if you're having trouble remembering what this means, refer to line 25 above).
+
+var likesBasketball = true;
+
+function canYouBall(ballin) {
+  console.log(ballin ? "Welcome to the Warriors" : "It's ok, there's always code :)");
+}
+
+canYouBall(likesBasketball);
 
 // ==============================================================
 
- 
+
 // ========================= QUESTION 3 =========================
 // In this exercise, make a function which takes in an argument (very similar to the past two questions). If the argument is true, console.log("I exist"). If the argument is false, console.log("Nobody's home").
 
+var existence = "true";
+
+function doesItExist(arg) {
+  console.log(arg ? "I exist" : "Nobody's home");
+}
+
+doesItExist(existence);
 
 // ==============================================================
 
@@ -50,7 +65,13 @@ var personOne = "Asher"
 var personTwo;
 // Call the function you made in question 3 twice. In the first instance, pass in personOne. In the second instance, pass in personTwo.
 
-// Comment out what you expect to see in the console from each function. Then, compare your guess to the actual console.log in the browser. 
+// Comment out what you expect to see in the console from each function. Then, compare your guess to the actual console.log in the browser.
+
+//Will equal true - "I exist"
+doesItExist(personOne);
+
+//Will equal false - "Nobody's home"
+doesItExist(personTwo);
 
 // ==============================================================
 
@@ -63,8 +84,13 @@ var three = 3;
 
 // Call the function you made in question 3 four times. In each instance, pass in a different one of the four given variables.
 
-// Comment out what you expect to see in the console from each function. Then, compare your guess to the actual console.log in the browser. 
+// Comment out what you expect to see in the console from each function. Then, compare your guess to the actual console.log in the browser.
 
+//They should all equal true, showing "I exist"
+doesItExist(zero);
+doesItExist(one);
+doesItExist(two);
+doesItExist(three);
 
 // ==============================================================
 

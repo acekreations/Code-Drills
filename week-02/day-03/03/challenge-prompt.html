@@ -7,10 +7,10 @@
   <title>Dot Notation</title>
 </head>
 <body>
-  
+
 
   <script>
-    
+
     var shows = {
       genre: {
         drama: {
@@ -77,7 +77,7 @@
             numSeasons: 5,
             creators: "Matthew Weiner",
             stillRunning: false
-          }, 
+          },
           dexter: {
             cast: [
               {
@@ -175,7 +175,7 @@
             stillRunning: true
           }
         },
-        
+
         comedy: {
           theOffice: {
             cast: [
@@ -357,7 +357,7 @@
             host: "Seth Meyers"
           }
         },
-        
+
         kids: {
           spongeBob: {
             cast: [
@@ -509,13 +509,17 @@
       }
     }
 
-// Hint: You may find that you're repeating yourself a lot. It may be helpful to create variables that point to different locations withing this object. 
+// Hint: You may find that you're repeating yourself a lot. It may be helpful to create variables that point to different locations withing this object.
 
     // For Example : var drama = shows.genre.drama
-    //Then to get the actor who plays Rick in Walking Dead, we would simply write drama.walkingDead.cast[0].actor as opposed to shows.genre.drama.walkingDead.cast[0].actor  
+    //Then to get the actor who plays Rick in Walking Dead, we would simply write drama.walkingDead.cast[0].actor as opposed to shows.genre.drama.walkingDead.cast[0].actor
 
 // ========================================= SHORTCUTS =========================================
-var drama;
+var comedy = shows.genre.comedy;
+var drama = shows.genre.drama;
+var kids = shows.genre.kids;
+var reality = shows.genre.reality;
+var talk = shows.genre.talk;
 
 
 // =============================================================================================
@@ -529,138 +533,156 @@ console.log(shows);
 
 //======================== QUESTION 1 ==========================
 //QUESTION: Who is the actor that plays Squidward in Spongebob (kids)?
-//ANSWER: 
-console.log();
+//ANSWER:
+console.log(kids.spongeBob.cast[3].actor);
 //==============================================================
 
 //======================== QUESTION 2 ==========================
 //QUESTION: Patrick Warburton plays Joe Swanson in Family Guy (comedy). What is the link to his imdb page?
-//ANSWER: 
-console.log();
+//ANSWER:
+console.log(comedy.familyGuy.cast[4].imdb);
 //==============================================================
 
 //======================== QUESTION 3 ==========================
 //QUESTION: Is the Walking Dead still running?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(drama.walkingDead.stillRunning);
 //==============================================================
 
 //======================== QUESTION 4 ==========================
 //QUESTION: Who plays Dexter in Dexter (drama) and who plays Dexter in Dexter's Lab (kids)?
 //HINT: You can console.log two multiple things at once by using a comma like this: console.log(thing1, thing2)
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(drama.dexter.cast[0].actor, kids.dextersLab.cast[0].actor);
 //==============================================================
 
 //======================== QUESTION 5 ==========================
 //QUESTION: Who are the creators of Stranger Things (drama)?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(drama.strangerThings.creators);
 //==============================================================
 
 //======================== QUESTION 6 ==========================
 //QUESTION: Who hosts the Daily Show (talk)?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(talk.theDailyShow.host);
 //==============================================================
 
 //======================== QUESTION 7 ==========================
 //QUESTION: Who are all the hosts of the view (talk)
 //Hint: You will need to use a loop for this one. You may not simply log the entire array, but must log each name individually
-//ANSWER: 
+//ANSWER:
 // for() {
-//   console.log(); 
+//   console.log();
 // }
+talk.theView.host.forEach(function(host){
+  console.log(host);
+})
 
 //==============================================================
 
 //======================== QUESTION 8 ==========================
 //QUESTION: What are the show names of the Impractical Jokers (comedy)
 //Hint: You will need to use a loop for this one. You may not simply log the entire array, but must log each name individually
-//ANSWER: 
+//ANSWER:
 // for() {
-//   console.log(); 
+//   console.log();
 // }
+comedy.impracticalJokers.cast.forEach(function(show){
+  console.log(show.showName);
+})
 //==============================================================
 
 //======================== QUESTION 9 ==========================
 //QUESTION: Who does Will Arnett play in Arrested Development (comedy)
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(comedy.arrestedDevelopment.cast[2].character);
 //==============================================================
 
 //======================== QUESTION 10 ==========================
 //QUESTION: Who plays Yami Yugi in Yu-Gi-Oh (kids)?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(kids.yuGiOh.cast[0].actor);
 //==============================================================
 
 //======================== QUESTION 11 ==========================
 //QUESTION: How many seasons did the Office (comedy) run?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(comedy.theOffice.numSeasons);
 //==============================================================
 
 //======================== QUESTION 12 ==========================
 //QUESTION: Who are the main characters of the Office (comedy) (not the actors, but the actual character names)?
-//ANSWER: 
+//ANSWER:
 // for() {
-//   console.log(); 
+//   console.log();
 // }
+comedy.theOffice.cast.forEach(function(characters){
+  console.log(characters.character);
+})
 //==============================================================
 
 //======================== QUESTION 13 ==========================
 //QUESTION: List the characters in Teen Titans (kids)
-//ANSWER: 
+//ANSWER:
 // for() {
-//   console.log(); 
+//   console.log();
 // }
+kids.teenTitans.cast.forEach(function(characters){
+  console.log(characters.character);
+})
 //==============================================================
 
 //======================== QUESTION 14 ==========================
 //QUESTION: What is the link to the IMDB page for the actor who plays Mr. Krabs (Spongebob, kids)?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(kids.spongeBob.cast[1].actor);
 //==============================================================
 
 //======================== QUESTION 15 ==========================
 //QUESTION: Who plays Negan in The Walking Dead?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(drama.walkingDead.cast[2].actor);
 //==============================================================
 
 //======================== QUESTION 16 ==========================
 //QUESTION: List the main cast of Dexter (drama) (the actors, not the characters)
-//ANSWER: 
+//ANSWER:
 // for() {
-//   console.log(); 
+//   console.log();
 // }
+drama.dexter.cast.forEach(function(mainCast){
+  console.log(mainCast.actor);
+})
 //==============================================================
 
 //======================== QUESTION 17 ==========================
 //QUESTION: Is Game of Thrones(drama) still running?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(drama.gameOfThrones.stillRunning);
 //==============================================================
 
 //======================== QUESTION 18 ==========================
 //QUESTION: Who does Peter Dinklage play in Game of Thrones (drama)?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(drama.gameOfThrones.cast[1].character);
 //==============================================================
 
 //======================== QUESTION 19 ==========================
 //QUESTION: List the American Idol Judges
-//ANSWER: 
+//ANSWER:
 // for() {
-//   console.log(); 
+//   console.log();
 // }
+reality.americanIdol.judges.forEach(function(judge){
+  console.log(judge);
+})
 //==============================================================
 
 //======================== QUESTION 20 ==========================
 //QUESTION: Who plays Dustin in Stanger Things (drama)?
-//ANSWER: 
-console.log(); 
+//ANSWER:
+console.log(drama.strangerThings.cast[3].actor);
 //==============================================================
 
 
