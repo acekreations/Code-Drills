@@ -7,7 +7,13 @@
 function checkWibble(str) {
 
   // ---------- Your Code Here ----------
-  
+  if((str.length % 2) === 0){
+    return true;
+  }
+  else {
+    return false;
+  }
+
 
 
 
@@ -26,7 +32,21 @@ function checkWibble(str) {
 function checkWobble(str) {
 
   // ---------- Your Code Here ----------
+  str.toLowerCase();
+  var vowelArr = ["a", "e", "i", "o", "u"];
+  var numVowels = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (vowelArr.indexOf(str[i])) {
+      numVowels++;
+    }
+  }
 
+  if (numVowels !== 0 && (numVowels % 3) === 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
 
 
 
@@ -48,8 +68,19 @@ function checkWobble(str) {
 function wibbleWobble(arr) {
 
   // ---------- Your Code Here ----------
-
-
+  for (var i = 0; i < arr.length; i++) {
+    var wibble = checkWibble(arr[i]);
+    var wobble = checkWobble(arr[i]);
+    if (wibble === true && wobble === true) {
+      arr[i] = "WibbleWobble";
+    }
+    else if (wibble === true) {
+      arr[i] = "Wibble";
+    }
+    else if (wobble === true) {
+      arr[i] = "Wobble";
+    }
+  }
 
 
 
