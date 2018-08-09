@@ -4,34 +4,33 @@
 
 // Fizz Buzz Alpha Super
 
-// Single Method Responsibility: 
-// The FizzBuzz we defined in class met the requirements but is not very reusable. 
-// For example what if the data type changed from an Array to a single number? 
-// You could duplicate the method that we created and create a new method for each data type. 
-// After completing it you might find that there is a lot of duplicated code. 
-// Together we are going to build one of the most flexible versions of FizzBuzz that the world has ever seen! 
+// Single Method Responsibility:
+// The FizzBuzz we defined in class met the requirements but is not very reusable.
+// For example what if the data type changed from an Array to a single number?
+// You could duplicate the method that we created and create a new method for each data type.
+// After completing it you might find that there is a lot of duplicated code.
+// Together we are going to build one of the most flexible versions of FizzBuzz that the world has ever seen!
 
 // Requirements:
 
 // Complete all the requirements for FizzBuzz:
 // Use these empty function to create your program.
-// Try to break up the functionality so that each method does exactly one thing. 
+// Try to break up the functionality so that each method does exactly one thing.
 
-// Here is the starter code: 
+// Here is the starter code:
 
 // This method just wraps our `fizzBuzzDataTypeChecker` call. You will not need to edit this function
 function fizzBuzzSuper(dataTypeInput){
-  izzBuzzDataTypeChecker(dataTypeInput);
+  fizzBuzzDataTypeChecker(dataTypeInput);
 }
 
 // This method should evaluate what the data type is and send it to the appropriate method
 // for handling that data type.
-// You will need to create a series of conditionals, each executing different actions depending 
+// You will need to create a series of conditionals, each executing different actions depending
 // on the data type of the argument passed to this function.
 function fizzBuzzDataTypeChecker(dataTypeInput){
 
   // ---------- Your Code Here ----------
-
 
     //if the argument is an array then call the `dataTypeArray` function with it as an argument
 
@@ -50,8 +49,33 @@ function fizzBuzzDataTypeChecker(dataTypeInput){
 
     //if the argument is an integer, then call the `fizzBuzzCalculation` function with it as an argument
 
-    
+
     //if the argument is a boolean, then call the `consoleLogNonNumber` function with it as an argument
+    switch (typeof dataTypeInput) {
+      case "array":
+        dataTypeArray(dataTypeInput);
+        break;
+      case "object":
+        dataTypeObj(dataTypeInput);
+        break;
+      case "string":
+        if (customIsNum(dataTypeInput)) {
+          fizzBuzzCalculation(dataTypeInput);
+        }
+        else {
+          consoleLogNonNumber(dataTypeInput);
+        }
+        break;
+      case "number":
+        fizzBuzzCalculation(dataTypeInput);
+        break;
+      case "boolean":
+        consoleLogNonNumber(dataTypeInput);
+        break;
+      default:
+        console.log("Did not find data type");
+
+    }
 
 
 
@@ -70,7 +94,9 @@ function fizzBuzzDataTypeChecker(dataTypeInput){
 // function
 function dataTypeArray(dataTypeInput){
   // ---------- Your Code Here ----------
-
+  for (var i = 0; i < dataTypeInput.length; i++) {
+    fizzBuzzDataTypeChecker(dataTypeInput[i]);
+  }
 
 
 
@@ -80,7 +106,7 @@ function dataTypeArray(dataTypeInput){
 }
 
 
-// This method takes as an argument an object and iterates through the keys and 
+// This method takes as an argument an object and iterates through the keys and
 // sends each value to the `fizzBuzzDataTypeChecker` method
 
 // Much like the method we just defined for arrays. We don't know
@@ -88,7 +114,10 @@ function dataTypeArray(dataTypeInput){
 // type checker method
 function dataTypeObj(dataTypeInput){
   // ---------- Your Code Here ----------
-
+  for (var key in dataTypeInput){
+    // console.log("might be obj - " + dataTypeInput[key]);
+    fizzBuzzDataTypeChecker(dataTypeInput[key]);
+  }
 
 
 
@@ -107,7 +136,18 @@ function dataTypeObj(dataTypeInput){
 // within our iterations
 function fizzBuzzCalculation(input){
   // ---------- Your Code Here ----------
-
+  if ((input % 3) === 0 && (input % 5) === 0) {
+    console.log("FizzBuzz");
+  }
+  else if ((input % 3) === 0) {
+    console.log("Fizz");
+  }
+  else if ((input % 5) === 0) {
+    console.log("Buzz");
+  }
+  else {
+    console.log(input);
+  }
 
 
 
@@ -117,7 +157,7 @@ function fizzBuzzCalculation(input){
 }
 
 
-// This method takes in the argument and simply console logs both the argument 
+// This method takes in the argument and simply console logs both the argument
 // and a message that tells the user that the argument wasn't a number. For example:
 
 // '{input}' IS NOT A NUMBER
@@ -125,7 +165,7 @@ function fizzBuzzCalculation(input){
 // where {input} is replaced by the value of the argument given to `consoleLogNonNumber`
 function consoleLogNonNumber(input){
   // ---------- Your Code Here ----------
-
+  console.log(input + " is not a number");
 
 
 
@@ -147,7 +187,7 @@ function customIsNum(input){
 }
 
 
-// The expected output of this function call should resemble: 
+// The expected output of this function call should resemble:
 
 // Fizz
 // 8
