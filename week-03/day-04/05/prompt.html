@@ -73,10 +73,10 @@
     <h3 class="search-heading">Search for songs!</h3>
     <form id="itunes">
       <input placeholder="term" id="term" type="text">
-      <input type="submit">
+      <input type="submit" id="submit">
     </form>
   </div>
-    
+
   <div class="library"></div>
 
   <script>
@@ -90,12 +90,30 @@
       });
 
       // ===================== YOUR CODE HERE ==================
+      $("#submit").on("click", function(){
+        event.preventDefault();
 
+        var userInput = $("#term").val();
 
+        queryURL = "https://itunes.apple.com/search?term=" + userInput;
 
+        $.ajax({
+          url: queryURL,
+          method: "GET",
+        }).then(function(res){
+          res = JSON.parse(res);
+          console.log(res);
 
-
-
+          for (var i = 0; i < 10; i++) {
+            var img = $("<img class='thumb'>").attr("src", res.results[i].artworkUrl100);
+            var name = $("<h2 class='song-name'>").text(res.results[i].trackName);
+            var artist = $("<h4 class='song-artist'>").text(res.results[i].artistName);
+            var audio = $("<audio class='song-audio' controls>").attr("src", res.results[i].previewUrl);
+            var songDiv = $("<div class='song'>").append(img, name, artist, audio);
+            $(".library").prepend(songDiv);
+          }
+        })
+      })
       // =======================================================
     })
 
