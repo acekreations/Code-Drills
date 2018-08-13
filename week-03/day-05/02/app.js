@@ -46,7 +46,7 @@ $(document).ready(function() {
 				url: cors + baseURL + query,
 				method: "GET"
 			}).then(function(response){
-				console.log(response);
+				console.log("Response: ", response);
 		/*
 			`console.log` the response
 				** make sure to add a string note inside ALL your console.log like:
