@@ -20,7 +20,8 @@ function displayButtons(buttons){
 // overwriting the existing characters within that string.
 function replaceChar(str, index, val) {
   firstHalf = str.substr(0, index);
-  secondHalf = str.substr(index + val.length)
+  secondHalf = str.substr(index + val.length);
+  console.log(firstHalf, val, secondHalf);
   return firstHalf + val + secondHalf;
 }
 
@@ -31,20 +32,22 @@ $(function() {
   var buttonColors = "111111111111";
 
 
-  // This section of code should set the value of buttonColors to be whatever 
+  // This section of code should set the value of buttonColors to be whatever
   // is stored in local storage. If there is no value stored within local storage,
-  // use the default value of buttonColors as defined above. 
+  // use the default value of buttonColors as defined above.
   //
   // -------------------- Your Code Here --------------------
+  if (localStorage.getItem("storedButtonColors")) {
+    buttonColors = localStorage.getItem("storedButtonColors");
+  }
 
 
-  
 
   // --------------------- End Code Area --------------------
-  
+
 
   // This calls the displayButtons function in order to color the strings based upon
-  // the value of buttonColors  
+  // the value of buttonColors
   displayButtons(buttonColors)
 
   // This is the listener for the user clicks on the button. It should swap the current
@@ -55,14 +58,19 @@ $(function() {
     // `index` variable
     var index = parseInt($(this).data("button"));
 
-
-    // Your code here should change the buttonColors string to reflect the change 
+    // Your code here should change the buttonColors string to reflect the change
     // in color from the user click. You will have to use the `replaceChar` function
     // defined above. After you've updated button colors, store it inside local storage.
     //
     // -------------------- Your Code Here --------------------
-
-
+    if (buttonColors[index] === "0") {
+      var val = "1";
+    }
+    else {
+      var val = "0";
+    }
+    buttonColors = replaceChar(buttonColors, index, val);
+    localStorage.setItem("storedButtonColors", buttonColors);
 
 
     // --------------------- End Code Area --------------------
