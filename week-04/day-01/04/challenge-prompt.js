@@ -9,7 +9,41 @@
 //                Helper Functions (Optional)
 //
 // -------------------- Your Code Here --------------------
+function sortDecending(arr) {
+  var sortedArray = [];
+  var madeSwap;
+  do {
+    madeSwap = false;
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] < arr[i+1]) {
+        var tempNum = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = tempNum;
+        madeSwap = true;
+      }
+    }
+  }
+  while (madeSwap)
+  return arr;
+}
 
+function sortAcending(arr) {
+  var sortedArray = [];
+  var madeSwap;
+  do {
+    madeSwap = false;
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] > arr[i+1]) {
+        var tempNum = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = tempNum;
+        madeSwap = true;
+      }
+    }
+  }
+  while (madeSwap)
+  return arr;
+}
 
 
 
@@ -22,8 +56,20 @@
 // -------------------------------------------------------
 function upDownSort(arr) {
   // -------------------- Your Code Here --------------------
+  var evenNums = [];
+  var oddNums = [];
 
+  for (var i = 0; i < arr.length; i++) {
+    if ((arr[i] % 2) === 0) {
+      evenNums.push(arr[i]);
+    }else {
+      oddNums.push(arr[i]);
+    }
+  }
 
+  evenNums = sortAcending(evenNums);
+  oddNums = sortDecending(oddNums);
+  return evenNums.concat(oddNums);
 
 
 
