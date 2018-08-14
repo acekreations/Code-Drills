@@ -6,10 +6,21 @@
 function hamming(str1, str2) {
 
   // -------------------- Your Code Here --------------------
+  if (str1.length === str2.length) {
+    var hammingNum = 0;
+    for (var i = 0; i < str1.length; i++) {
+      if (str1[i] !== str2[i]) {
+        hammingNum++;
+      }
+    }
+    return hammingNum;
+  }
+  else {
+    return "Please provide two strings of the same length";
+  }
 
 
-  
-  
+
 
   // --------------------- End Code Area --------------------
 
