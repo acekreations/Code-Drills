@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    function compareStrings(strA, strB) {
+      //loop strA
+      //if index values are the same move on
+      //if index values are not the same insert strA index val into strB increment var differences
+      strA = Array.from(strA);
+      strB = Array.from(strB);
+
+      var differences = 0;
+      for (var i = 0; i < strA.length; i++) {
+        if (strA[i] !== strB[i]) {
+          strB.splice(i, 0, strA[i]);
+          differences++;
+        }
+      }
+      return differences;
+    }
+
+    function levensthein(str1, str2) {
+      // =============== YOUR WORK HERE ======================
+      //check lengs of both strings
+      //loop through the longer string if there is one
+      //get the equivalent index of the shorter string
+      //compare the two index values
+      //if the index values are the same move on
+      //if the index values are different increment var diferences
+      //return differences values
+
+      if (str1.length > str2.length) {
+        console.log(compareStrings(str1, str2));
+      }
+      //run if str2 length is greater than str1 length OR if strings are the same length - order doesn't matter if they are the same length
+      else {
+        console.log(compareStrings(str2, str1));
+      }
+
+
+
+      // =====================================================
+    }
+
+    levensthein("robert", "robbery")
+    levensthein("yeah", "lmno")
+    levensthein("yo", "yo")
+    levensthein("l", "length")
+    levensthein("sitting", "kitten")
+
+  </script>
+
+</body>
+
+</html>
