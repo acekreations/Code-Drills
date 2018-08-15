@@ -14,7 +14,19 @@ var sentence = "It is our choices, that show what we truly are, far more than ou
 
 function longestWord(sen) {
     // ====================== YOUR WORK HERE ===================
-
+var senArr = sen.split(" ");
+var longestWord = {
+  word: "",
+  //can't figure out how to set value of key to a type of number so using -1 as way to set number type witout interfering with a possible index
+  index: -1
+};
+for (var i = 0; i < senArr.length; i++) {
+  if (senArr[i].length > longestWord.word.length) {
+    longestWord.word = senArr[i];
+    longestWord.index = i;
+  }
+}
+return senArr[longestWord.index];
 
 
 
@@ -22,12 +34,12 @@ function longestWord(sen) {
 
 
     // =========================================================
-  
+
   }
 console.log(longestWord(sentence))
 
 
   </script>
-  
+
 </body>
 </html>
