@@ -12,7 +12,23 @@
   <script>
     function compressor(str) {
     // ====================== YOUR WORK HERE ===================
+    var letterCount = {};
+    for (var i = 0; i < str.length; i++) {
+      if (letterCount[str[i]]) {
+        letterCount[str[i]]++;
+      }
+      else {
+        letterCount[str[i]] = 1;
+      }
+    }
 
+    var returnStr = "";
+
+    for(var key in letterCount){
+      returnStr = returnStr + key + letterCount[key];
+    }
+
+    return returnStr;
 
 
 
@@ -22,6 +38,6 @@
     console.log(compressor("hhhkkkkkkttttttttt"))
     console.log(compressor("hrkjqehvewqjhvheqvwjcgfwegiuf"))
   </script>
-  
+
 </body>
 </html>
