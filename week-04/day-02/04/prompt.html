@@ -10,11 +10,27 @@
 
 
   <script>
-    var array = [1, 2, 4, 5, 9, 7, 16, 12, 20]
+    var array = [1, 2, 4, 5, 9, 7, 16, 12, 20];
+    var array2 = [30, 2, 20, 5, 19, 7, 16, 12, 20];
 
     function largestSum(arr) {
     // ====================== YOUR WORK HERE ===================
+    var large1 = 0;
+    var large2 = 0;
 
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] > large1) {
+        large1 = arr[i];
+      }
+    }
+
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] > large2 && arr[i] < large1) {
+        large2 = arr[i];
+      }
+    }
+
+    return large1 + large2;
 
 
 
@@ -25,6 +41,6 @@
 
 console.log(largestSum(array))
   </script>
-  
+
 </body>
 </html>
