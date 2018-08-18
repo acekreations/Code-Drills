@@ -7,26 +7,64 @@
   <title>Document</title>
 </head>
 <body>
-  
+
 
   <script>
-    var roman = "MMMDCCLXXXII"
-    var roman2 = "IX"
-    var roman3 = "CMXLIV"
+    var roman = "MMMDCCLXXXII";
+    var roman2 = "IX";
+    var roman3 = "CMXLIV";
+    var i = 1;
+    var v = 5;
+    var x = 10;
+    var l = 50;
+    var c = 100;
+    var d = 500;
+    var m = 1000;
 
     function convertRoman(str) {
-    
+
     // ====================== YOUR WORK HERE ======================
+    var total = 0;
+
+    str = str.toLowerCase();
+
+    for (var j = 0; j < str.length; j++) {
+      switch (str[j]) {
+        case "i":
+            total += i;
+          break;
+        case "v":
+            total += v;
+          break;
+        case "x":
+            total += x;
+          break;
+        case "l":
+            total += l;
+          break;
+        case "c":
+            total += c;
+          break;
+        case "d":
+            total += d;
+          break;
+        case "m":
+            total += m;
+          break;
+        default:
+      }
+    }
+    return total;
 
 
 
 
     // ============================================================
-    
-    
+
+
     }
 
-    
+
 
 
 console.log(convertRoman(roman))
