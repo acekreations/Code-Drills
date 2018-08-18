@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  
+
 
   <script>
     var array = ["predestined", "predetermined", "prescient", "preschool", "precious"]
@@ -15,9 +15,17 @@
     var array3 = ["prescient", "preschool"]
 
     function longestPrefix(arr) {
-    
-    // ====================== YOUR WORK HERE ======================
 
+    // ====================== YOUR WORK HERE ======================
+    var prefix = "";
+    for (var i = 0; i < arr[0].length; i++) {
+      for (var j = 1; j < arr.length; j++) {
+        if (arr[0][i] !== arr[j][i]) {
+          prefix = arr[0].substring(0, i);
+          return prefix
+        }
+      }
+    }
 
 
 
