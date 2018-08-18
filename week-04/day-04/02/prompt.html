@@ -7,14 +7,31 @@
   <title>Document</title>
 </head>
 <body>
-  
+
 
   <script>
-    
-    var elevator = "^^^^^vv^v^vv^v^^^vvv^^^^^^v^^v^^^v^^vvv"
-    
-    function whichFloor(str) {
 
+    var elevator = "^^^^^vv^v^vv^v^^^vvv^^^^^^v^^v^^^v^^vvv"
+
+    function whichFloor(str) {
+      var floorNum = 0;
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] === "^") {
+          floorNum++;
+        }
+        else if (str[i] === "v") {
+          floorNum--;
+        }
+        else {
+          return "Please enter a valid string.";
+        }
+      }
+      if (floorNum < 0) {
+        return "Your elevator crashed!"
+      }
+      else {
+        return "You are on floor " + floorNum;
+      }
     }
 
     console.log(whichFloor(elevator))
