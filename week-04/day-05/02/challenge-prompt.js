@@ -9,11 +9,16 @@
 // -------------------------------------------------------
 function factorial(num) {
   // -------------------- Your Code Here --------------------
+  var factorial = num;
+  while (num > 1) {
+    num--;
+    factorial *= num;
+    console.log(factorial);
+  }
+  return factorial;
 
 
 
-  
-  
   // --------------------- End Code Area --------------------
 }
 
@@ -22,9 +27,9 @@ function factorial(num) {
 $(function() {
   $(document).on("click", "button[type=submit]", function(event){
     event.preventDefault();
-    
+
     num = $("input").val().trim();
     $("#output-area").text(factorial(num));
 
   });
-})
+});
