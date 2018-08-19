@@ -9,12 +9,19 @@
 // -------------------------------------------------------
 function factor(num) {
   // -------------------- Your Code Here --------------------
+var i = 0;
+var factors = [];
+
+while (i <= num) {
+  if (num % i === 0) {
+    factors.push(i);
+  }
+  i++;
+}
+return factors;
 
 
-  
 
-  
-  
   // --------------------- End Code Area --------------------
 }
 
@@ -23,9 +30,9 @@ function factor(num) {
 $(function() {
   $(document).on("click", "button[type=submit]", function(event){
     event.preventDefault();
-    
+
     num = $("input").val().trim();
     $("#output-area").text(factor(num));
 
   });
-})
+});
