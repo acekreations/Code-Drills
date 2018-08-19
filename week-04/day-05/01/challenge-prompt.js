@@ -21,9 +21,22 @@
 // -------------------------------------------------------
 function sing(maxBottles) {
   // -------------------- Your Code Here --------------------
+  maxBottles = parseInt(maxBottles);
+  while (maxBottles > 0) {
+    var newLine = $("<p>");
+    if (maxBottles === 1) {
+      newLine.text(maxBottles + " bottle of beer on the wall. " + maxBottles + " bottle fo beer. Take one down, pass it around, no more bottles of beer on the wall :(");
+      $("#output-area").append(newLine);
+    }
+    else {
+      console.log(maxBottles);
+      newLine.text(maxBottles + " bottles of beer on the wall. " + maxBottles + " bottles fo beer. Take one down, pass it around, " + (maxBottles - 1) + " bottles of beer on the wall!");
+      $("#output-area").append(newLine);
+    }
+    maxBottles--;
+  }
 
 
-  
 
 
   // --------------------- End Code Area --------------------
@@ -40,4 +53,4 @@ $(function() {
     sing(num);
 
   });
-})
+});
