@@ -10,10 +10,17 @@
 // -------------------------------------------------------
 function countCons(str) {
   // -------------------- Your Code Here --------------------
+  str = str.toLowerCase();
+  var cons = "bcdfghjklmnpqrstvwxyz";
+  cons = cons.split("");
+  var numCons = 0;
 
-
-
-
+  for (var i = 0; i < str.length; i++) {
+    if (cons.indexOf(str[i]) >= 0) {
+      numCons++;
+    }
+  }
+  return numCons;
 
 
   // --------------------- End Code Area --------------------
@@ -24,9 +31,9 @@ function countCons(str) {
 $(function() {
   $(document).on("click", "button[type=submit]", function(event){
     event.preventDefault();
-    
+
     num = $("input").val().trim();
     $("#output-area").text(countCons(num));
 
   });
-})
+});
