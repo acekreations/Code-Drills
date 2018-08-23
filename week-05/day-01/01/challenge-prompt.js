@@ -13,7 +13,7 @@ function reverse(str) {
   // -------------------- Your Code Here --------------------
   str = str.split(" ");
   str = str.reverse();
-  return str.join(" ")
+  return str.join(" ");
 
 
 
