@@ -12,11 +12,21 @@
 // ----------------------------------------------------------
 function checkTriange(arr) {
   // -------------------- Your Code Here --------------------
+  var result = [];
 
+  if (arr[0] === arr[1] && arr[1] === arr[2]) {
+    result.push("Equilateral Triangle");
+  }
 
+  if (arr[0] === arr[1] || arr[0] === arr[2]) {
+    result.push("Isoceles Triangle");
+  }
 
+  if (arr[0] !== arr[1] && arr[0] !== arr[2]) {
+    result.push("Scalene Triangle");
+  }
 
-
+  return result;
 
   // --------------------- End Code Area --------------------
 }
@@ -37,7 +47,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [Equilateral Triangle,Isosceles Triangle]</p>
       <hr class="mb-5">
-      <p class="text-left">[${checkTriange(testarr1)}]</p> 
+      <p class="text-left">[${checkTriange(testarr1)}]</p>
     </div>
   </div>
 `)
@@ -52,7 +62,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be "Scalene Triangle"</p>
       <hr class="mb-5">
-      <p class="text-left">"${checkTriange(testarr2)}"</p> 
+      <p class="text-left">"${checkTriange(testarr2)}"</p>
     </div>
   </div>
 `)
@@ -67,7 +77,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be "Isosceles Triangle"</p>
       <hr class="mb-5">
-      <p class="text-left">"${checkTriange(testarr3)}"</p> 
+      <p class="text-left">"${checkTriange(testarr3)}"</p>
     </div>
   </div>
 `)

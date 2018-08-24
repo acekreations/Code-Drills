@@ -12,11 +12,25 @@
 // ----------------------------------------------------------
 function findRepeats(arr) {
   // -------------------- Your Code Here --------------------
+  var noRepeats = {};
+  var noRepeatsArr = [];
 
+  for (var i = 0; i < arr.length; i++) {
+    if (noRepeats[arr[i]] > 0) {
+      noRepeats[arr[i]] = noRepeats[arr[i]] + 1;
+    }
+    else {
+      noRepeats[arr[i]] = 1;
+    }
+  }
 
+  for (var key in noRepeats) {
+    if (noRepeats[key] > 1) {
+      noRepeatsArr.push(key);
+    }
+  }
 
-
-
+  return noRepeatsArr.sort();
 
   // --------------------- End Code Area --------------------
 }
@@ -37,7 +51,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [abridge,critic,strong]</p>
       <hr class="mb-5">
-      <p class="text-left">[${findRepeats(testarr1)}]</p> 
+      <p class="text-left">[${findRepeats(testarr1)}]</p>
     </div>
   </div>
 `)
@@ -52,7 +66,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [boat,craftsman,improve]</p>
       <hr class="mb-5">
-      <p class="text-left">[${findRepeats(testarr2)}]</p> 
+      <p class="text-left">[${findRepeats(testarr2)}]</p>
     </div>
   </div>
 `)
@@ -67,7 +81,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be []</p>
       <hr class="mb-5">
-      <p class="text-left">[${findRepeats(testarr3)}]</p> 
+      <p class="text-left">[${findRepeats(testarr3)}]</p>
     </div>
   </div>
 `)

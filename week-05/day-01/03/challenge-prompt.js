@@ -10,8 +10,28 @@
 // ----------------------------------------------------------
 //                        Zipping Arrays
 // ----------------------------------------------------------
+
+function addArrays(lgArr, smArr) {
+  var totalArr = [];
+  for (var i = 0; i < lgArr.length; i++) {
+    if (smArr[i]) {
+      totalArr.push(lgArr[i] + smArr[i]);
+    }
+    else {
+      totalArr.push(lgArr[i]);
+    }
+  }
+  return totalArr;
+}
+
 function zipArrays(arr1, arr2) {
   // -------------------- Your Code Here --------------------
+  if (arr1.length > arr2.length) {
+    return addArrays(arr1, arr2);
+  }
+  else {
+    return addArrays(arr2, arr1);
+  }
 
 
 
@@ -38,7 +58,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [22,37,50,85,8,9]</p>
       <hr class="mb-5">
-      <p class="text-left">[${zipArrays(test1arr1, test1arr2)}]</p> 
+      <p class="text-left">[${zipArrays(test1arr1, test1arr2)}]</p>
     </div>
   </div>
 `)
@@ -54,7 +74,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [6,20,43,589]</p>
       <hr class="mb-5">
-      <p class="text-left">[${zipArrays(test2arr1, test2arr2)}]</p> 
+      <p class="text-left">[${zipArrays(test2arr1, test2arr2)}]</p>
     </div>
   </div>
 `)
@@ -70,7 +90,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [71,44,98,82,34]</p>
       <hr class="mb-5">
-      <p class="text-left">[${zipArrays(test3arr1, test3arr2)}]</p> 
+      <p class="text-left">[${zipArrays(test3arr1, test3arr2)}]</p>
     </div>
   </div>
 `)

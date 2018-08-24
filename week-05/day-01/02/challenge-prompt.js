@@ -10,7 +10,14 @@
 // -------------------- Your Code Here --------------------
 
 
-
+function checkPrime(num) {
+  for (var i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
 
 
 // --------------------- End Code Area --------------------
@@ -23,7 +30,17 @@
 function primeFactors(num) {
   // -------------------- Your Code Here --------------------
 
+  var primeNums = [];
 
+  for(var i = 2; i < num; i++) {
+    if(num % i === 0) {
+      if(checkPrime(i)){
+        primeNums.push(i);
+      }
+    }
+  }
+
+  return primeNums;
 
 
 
@@ -47,7 +64,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [2]</p>
       <hr class="mb-5">
-      <p class="text-left">[${primeFactors(testnum1)}]</p> 
+      <p class="text-left">[${primeFactors(testnum1)}]</p>
     </div>
   </div>
 `)
@@ -62,7 +79,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [2,13]</p>
       <hr class="mb-5">
-      <p class="text-left">[${primeFactors(testnum2)}]</p> 
+      <p class="text-left">[${primeFactors(testnum2)}]</p>
     </div>
   </div>
 `)
@@ -77,7 +94,7 @@ $("#output-area").append(`
     <div class="card-body">
       <p class="text-left">The following should be [3,19,953]</p>
       <hr class="mb-5">
-      <p class="text-left">[${primeFactors(testnum3)}]</p> 
+      <p class="text-left">[${primeFactors(testnum3)}]</p>
     </div>
   </div>
 `)
