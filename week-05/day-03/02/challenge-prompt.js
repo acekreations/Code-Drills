@@ -10,8 +10,10 @@ Starter Code :*/
 function addToFrontOfNew(arr, element) {
   // your code here
 
+  var newArr = [element];
+  newArr = newArr.concat(arr);
 
-
+  return newArr;
 
   // code ends here
 }
@@ -31,7 +33,7 @@ Starter Code :*/
 function computeSquareRoot(num) {
   // your code here
 
-
+  return Math.sqrt(num);
 
 
 
@@ -52,15 +54,16 @@ Given an object and a key, "filterPropertyByIndex" returns an array containing a
 Notes:
 * If the array is empty, it should return an empty array.
 * If the property at the given key is not an array, it return an empty array.
-* If there is no property at the key, it should return an empty array. 
+* If there is no property at the key, it should return an empty array.
 
 
 Starter Code :*/
 function filterPropertyByIndex(obj, key) {
   // your code here
 
+  obj[key].pop();
 
-
+  return obj[key];
 
 
 
@@ -88,6 +91,12 @@ Starter Code :*/
 function areValidCredentials(name, password) {
   // your code here
 
+  if (name.length > 3 && password.length >= 8) {
+    return true;
+  }
+  else {
+    return false;
+  }
 
 
 

@@ -7,9 +7,9 @@ Given two objects and a key, "addObjectProperty" sets a new property on the 1st 
 Starter Code :*/
 function addObjectProperty(obj1, key, obj2) {
     // your code here
+    obj1[key] = obj2;
 
-
-
+    return obj1;
 
 
     // code ends here
@@ -39,9 +39,13 @@ Starter Code :*/
 function getElementsUpTo(array, n) {
     // your code here
 
+    var newArr = [];
 
+    for (var i = 0; i < n; i++) {
+      newArr.push(array[i]);
+    }
 
-
+    return newArr;
 
     // code ends here
 }
@@ -60,9 +64,9 @@ Starter Code :*/
 function addToEnd(arr, element) {
     // your code here
 
+    arr.push(element);
 
-
-
+    return arr;
 
     // code ends here
 }
@@ -80,11 +84,11 @@ Starter Code :*/
 function areaOfARectangle(length, width) {
     // your code here
 
+    return length * width;
 
 
 
 
-    
     // code ends here
 }
 var output = areaOfARectangle(4, 8);

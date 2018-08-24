@@ -1,6 +1,6 @@
 console.log("////////////////////////////// QUESTION 3.1 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
 
-/* 
+/*
 Given a principal, an interest rate, a compounding frequency, and a time (in years), "computeCompoundInterest" returns the amount of compound interest generated.
 Reference:
 https://en.wikipedia.org/wiki/Compound_interest#Calculation_of_compound_interest
@@ -10,9 +10,9 @@ Starter Code :
 */
 function computeCompoundInterest(principal, interestRate, compoundingFrequency, timeInYears) {
   // your code here
-
-  
-
+  var total = principal * Math.pow((1 + interestRate / compoundingFrequency), (compoundingFrequency * timeInYears));
+  var interest = total - principal;
+  return interest;
 
     // code ends here
 }
@@ -30,8 +30,8 @@ Given an object, "keysCounter" returns how many properties the given object has.
 */
 function keysCounter(obj) {
   // your code here
+  return Object.keys(obj).length;
 
-  
 
 
 
@@ -57,8 +57,15 @@ For the argument 'I am a hacker' and the letter 'a', the letter 'a' occurs 3 tim
 Starter Code :*/
 function countCharacter(str, char) {
   // your code here
+  var count = 0;
 
-  
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      count++;
+    }
+  }
+
+  return count;
 
 
 
