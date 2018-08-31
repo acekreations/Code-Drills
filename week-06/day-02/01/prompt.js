@@ -146,32 +146,45 @@ function Game() {
       switch (game.gun) {
 
         case "Bear hands":
-
+            bearHands.calcDamage();
+            bearHands.didDam();
+            bearHands.uses--;
+            pickZombie(bearHands);
           break;
 
         case "Machete":
-
+            machete.calcDamage();
+            machete.didDam();
+            machete.uses--;
+            pickZombie(machete);
           break;
 
         case "Shotgun":
-
+            shotgun.calcDamage();
+            shotgun.didDam();
+            shotgun.uses--;
+            pickZombie(shotgun);
           break;
 
         case "Pistol":
-
-
+            pistol.calcDamage();
+            pistol.didDam();
+            pistol.uses--;
+            pickZombie(pistol);
           break;
 
         case "Machine Gun":
-
+            machineGun.calcDamage();
+            machineGun.didDam();
+            machineGun.uses--;
+            pickZombie(machineGun);
           break;
 
         case "Sniper":
-
-          break;
-
-        case "RPG":
-
+            sniper.calcDamage();
+            sniper.didDam();
+            sniper.uses--;
+            pickZombie(sniper);
           break;
 
 //===================================================
@@ -181,10 +194,10 @@ function Game() {
         //6.4 Display the weapon stats
         //6.4.1
         // In between the "+"s below, insert the corresponding gun's remaining uses
-          console.log("Bear Hands:\n reach: 1\n attack: 5 \n risk:95\n reliability: 90 \n uses: ∞\n\n Machete: \n reach: 1\n attack: min(40), max(60)\n risk: 80\n reliability: 90\n uses: " +  + "\n\nShotgun: \n reach: 2\n attack: min(30), max(50)\n risk: 65\n reliability: 80\n uses: " +  + "\n\nPistol: \n reach: 2\n attack: min(25) max(40)\n risk: 50\n reliability: 75\n uses: " +  + "\n\nMachine Gun:\n reach: 3\n attack: min(15), max(30)\n risk: 30\n reliability: 65\n uses: " +  + "\n\nSniper:\n reach: 1\n attack: min(40) max(60)\n risk: 30\n reliability: 20\n uses: " +  + "\n\nRPG:\n reach: 4\n attack: min(20), max(35)\n risk: 95\n reliability: 40\n uses: " +  + "\n\n")
+          console.log("Bear Hands:\n reach: 1\n attack: 5 \n risk:95\n reliability: 90 \n uses: ∞\n\n Machete: \n reach: 1\n attack: min(40), max(60)\n risk: 80\n reliability: 90\n uses: " + machete.uses + "\n\nShotgun: \n reach: 2\n attack: min(30), max(50)\n risk: 65\n reliability: 80\n uses: " + shotgun.uses + "\n\nPistol: \n reach: 2\n attack: min(25) max(40)\n risk: 50\n reliability: 75\n uses: " + pistol.uses + "\n\nMachine Gun:\n reach: 3\n attack: min(15), max(30)\n risk: 30\n reliability: 65\n uses: " + machineGun.uses + "\n\nSniper:\n reach: 1\n attack: min(40) max(60)\n risk: 30\n reliability: 20\n uses: " + sniper.uses + "\n\n");
           //6.4.2
           //Invoke the next round function
-
+          nextRound();
           //===================================================
           break;
       }
@@ -214,19 +227,19 @@ function Game() {
 
       switch (zombie.zombie) {
         case "zombie1":
-
+            zombie1.fight(weapon);
           break;
         case "zombie2":
-
+            zombie2.fight(weapon);
           break;
         case "zombie3":
-
+            zombie3.fight(weapon);
           break;
         case "zombie4":
-
+            zombie4.fight(weapon);
           break;
         case "zombie5":
-
+            zombie5.fight(weapon);
           break;
            // ======================================
       }
@@ -240,11 +253,16 @@ function Game() {
     //6.6: Determine zombies affected by weapon's reach
     //  6.6.1 Create a variable called zombieVictims and set it to an empty array
     // 6.6.2 push the zombie chosen by the user into the array you created in 6.6.1
-
+    var zombieVictims = [];
+    zombieVictims.push(zombie);
     //6.6.3 Looping through zombieFighters, push all the zombies within to zombieVictims, but only under the following conditions:
     // - The length of zombieVictims is less than the reach of the gun
     // - The name of the chosen zombie does not match the one in zombieFighters
-
+    for (var i = 0; i < zombieFighters.length; i++) {
+      if (i < zombieVictims.length && zombieFighters[i] === zombie) {
+        zombieVictims.push(zombieFighters[i]);
+      }
+    }
 
 
 

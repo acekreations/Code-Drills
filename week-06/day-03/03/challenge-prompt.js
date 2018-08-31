@@ -7,7 +7,9 @@ Starter Code :*/
 function oddChecker(num1, num2) {
   // code starts here
 
-
+  if ((num1 % 2) !== 0 && (num2 % 2) !== 0) {
+    return true;
+  }
 
 
 
@@ -32,10 +34,12 @@ DO NOT use the built in Math.pow method
 Starter Code :*/
 function power(num, exponent) {
   // code starts here
+  total = 0;
+  for (var i = 0; i <= exponent.length; i++) {
+    total =  total * num;
+  }
 
-
-
-
+  return total;
 
 
 
@@ -43,7 +47,7 @@ function power(num, exponent) {
   // code ends here
 }
 
-var output = exponentChecker(2, 3);
+var output = power(2, 3);
 console.log(output); // --> 8
 
 ////////////////////////////////////////////////////////////////
@@ -59,8 +63,13 @@ Given a number, "halfsquareRoot" returns its square root divided by two
 Starter Code :*/
 function halfsquareRoot(num) {
   // code starts here
-
-  
+  i = 1;
+  while (i < num) {
+    if (i * i === num) {
+      return i / 2;
+    }
+    i++;
+  }
 
 
 

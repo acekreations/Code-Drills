@@ -5,7 +5,9 @@
 // inside the function, execute the callback with the string as the argument
 
 // ===================== Code Starts Here =====================
-
+function minionOne(string, cb){
+  cb(string);
+}
 
 
 
@@ -13,15 +15,15 @@
 
 
 
-// call "minionOne" and pass it the function "minionTwo" and 
+// call "minionOne" and pass it the function "minionTwo" and
 // a string of "Have you seen Gru?" as arguments
 
 // ===================== Code Starts Here ===================
 
+minionOne("Have you seen Gru?", minionTwo);
 
 
-
-// ===================== Code Ends Here ===================== 
+// ===================== Code Ends Here =====================
 
 
 
@@ -30,10 +32,12 @@
 
 // ===================== Code Starts Here =====================
 
+function minionTwo(string){
+  console.log(string);
+}
 
 
-
-// ===================== Code Ends Here ===================== 
+// ===================== Code Ends Here =====================
 
 
 
@@ -43,10 +47,18 @@
 
 // ===================== Code Starts Here =====================
 
+function minionThree(bool, cb){
+  if (bool) {
+    console.log("I found Gru\n -------------\n");
+    cb();
+  }
+  else {
+    console.log("Still looking for Gru\n -------------\n");
+  }
+}
 
 
-
-// ===================== Code Ends Here ===================== 
+// ===================== Code Ends Here =====================
 
 
 
@@ -55,19 +67,21 @@
 
 // ===================== Code Starts Here =====================
 
+function callBacksAreFun(){
+  console.log("Hip Hip Horray!\n -------------\n");
+}
+
+
+// ===================== Code Ends Here =====================
 
 
 
-// ===================== Code Ends Here ===================== 
-
-
-
-// Call the "minionThree" function and pass it the "callBacksAreFun" function 
+// Call the "minionThree" function and pass it the "callBacksAreFun" function
 // and the boolean true as arguments
 
 // ===================== Code Starts Here =====================
 
+minionThree(true, callBacksAreFun);
 
 
-
-// ===================== Code Ends Here ===================== 
+// ===================== Code Ends Here =====================

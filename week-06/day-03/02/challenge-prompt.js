@@ -34,10 +34,10 @@ function minionThree(gru, callback1, callback2) {
 }
 
 function minionFour(gru, callback) {
-  gru = true;  
+  gru = true;
   if (gru === true) {
     console.log("39 I have found Gru")
-    return callback(gru) 
+    return callback(gru)
   } else {
     console.log("42 I haven't seen Gru")
   }
@@ -48,17 +48,20 @@ function minionFour(gru, callback) {
 // WITHOUT running this file, try to predict the expected outcome from the following
 // function call
 
-// minionOne(minionTwo(false, minionThree, minionFour, minionOne))
+minionOne(minionTwo(false, minionThree, minionFour, minionOne))
 
 
 // What are the expected console logs? What order do they appear in?
 /*
  -=- YOUR ANSWER HERE -=-
 
+"22 I haven't seen Gru"
 
 
+"31 I haven't seen Gru"
 
 
+"14 I haven't seen Gru"
 
 
  -=- END ANSWER AREA -=-

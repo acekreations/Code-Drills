@@ -1,16 +1,21 @@
 /*Write a function called "indexOfLetter".
 
-Given a character and a string, "indexOfLetter" returns the first time the letter occurs 
+Given a character and a string, "indexOfLetter" returns the first time the letter occurs
 
 Starter Code :*/
 function indexOfLetter(char, str) {
   // code starts here
 
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      return i;
+    }
+  }
 
 
 
 
-  
+
   // code ends here
 }
 
@@ -26,8 +31,14 @@ Starter Code :*/
 function evenElementsOnly(obj, key) {
   // code starts here
 
-  
+  var evenNums = [];
 
+  for (var i = 0; i < obj[key].length; i++) {
+    if (obj[key][i] % 2 === 0) {
+      evenNums.push(obj[key][i]);
+    }
+  }
+  return evenNums;
 
 
 
